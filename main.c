@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "choose.h"
 #include "spliting.h"
@@ -12,6 +13,32 @@
 #include "utilities/extract.h"
 
 #include "utilities/char/forchar.h"
+void analize(char *input) {
+    bool inside_function = false;
+    int arg_count = 0;
+    int write_index = 0;
+
+    for (int i = 0; i <= strlen(input); i++) {
+        if (input[i] == '(') {
+            inside_function = true;
+            arg_count = 0;
+            input[write_index++] = input[i];
+        } else if (input[i] == ')') {
+            inside_function = false;
+            input[write_index++] = input[i];
+        } else if (input[i] == ',' && inside_function) {
+            input[write_index++] = ')';
+            input[write_index++] = ',';
+            input[write_index++] = ' ';
+            input[write_index++] = '(';
+            input[write_index++] = input[i];
+            arg_count++;
+        } else if (inside_function && input[i] != '\n') {
+            input[write_index++] = input[i];
+        }
+    }
+    input[write_index] = '\0';  // Null-terminate the modified string
+}
 
 //1098+ line of code yet ! :)
 //in 16 different file ! ;)
@@ -166,10 +193,10 @@ int main(void) {
   int number;
   number = read(c, "saucisse.txt");
   //char **list = splitline(c, "\n");
-
+  analize(c);
   char list[100][400];
   
-  replace_newlines(c);
+  //replace_newlines(c);
   int number2 = list_line(c, list);
   
   free(c);

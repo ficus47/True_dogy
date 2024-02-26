@@ -1,0 +1,6 @@
+"xe" = 4785
+input(entrez votre nom :)
+print("bonjour " , "output")
+if(3 == 3,
+print("mort")
+)

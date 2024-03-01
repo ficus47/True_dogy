@@ -73,7 +73,7 @@ int evaluate(char a[], struct variable *var[]){
   if (extract2(a , &ab, &ab, command, list2) != NULL){
     extraire(a, &ab, &ac, token, list3);
 
-    if (find(&token, &separator) == 1){
+    if (find(token, &separator) == 1){
      list_arg2(token, list1, &number);
     }else {
       if (list1[0] != NULL){
@@ -82,7 +82,7 @@ int evaluate(char a[], struct variable *var[]){
       }
     }
 
-    choose(command, &list1, number, var);
+    choose(command, list1, number, var);
   }
   else if (find(a, &sep2) == 1){
     saucisse(var, a);

@@ -195,16 +195,16 @@ int main(void) {
   //char **list = splitline(c, "\n");
   analize(c);
   char *list[number+20];
-  
+
   //replace_newlines(c);
   int number2 = list_line(c, list);
 
   free(c);
   int buffer = 0;
   /* bonjour */
-  printf("%d", number);
+  printf("\n%s\n", list[buffer]);
   while (buffer != number){
-    printf("\n%s\n", list[buffer]);
+    
     if (strcmp(list[buffer], "") == 0){continue;}
     strcpy(var,"");
     var[1] = '\0';

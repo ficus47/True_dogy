@@ -51,12 +51,12 @@ void list_arg2(const char *input_string, char *arguments[], int *arg_count) {
 
 
 int evaluate(char a[], struct variable *var[]){
-  char command[999] = "";
+  char command[200] = "";
 
-  char token[999] = "";
-  char *list[99];
-  char list2[999];
-  char list3[999];
+  char token[100] = "";
+  char list[99];
+  char list2[100];
+  char list3[100];
   char separator = ',';
   char sep2 = '=';
   int number  = 0;

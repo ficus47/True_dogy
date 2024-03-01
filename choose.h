@@ -63,8 +63,10 @@ void input(char *a[], long long int o, struct variable *var[]){
 
 
 int choose(char a[], char *b[], int c, struct variable *var[]){
+  
   //printf("a = %s\n", a);
   //printf("%d : %s\n", strcmp(a, "print"), a);
+
   if (strcmp(a, "print") == 0){
     print(b, c, var, 1);
     return 0;

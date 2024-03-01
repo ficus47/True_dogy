@@ -198,7 +198,7 @@ int main(void) {
   
   //replace_newlines(c);
   int number2 = list_line(c, list);
-  
+
   free(c);
   int buffer = 0;
   /* bonjour */

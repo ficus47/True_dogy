@@ -15,7 +15,7 @@
 
 #include "utilities/char/forchar.h"
 
-void list_arg2(const char *input_string, char arguments[][400], int *arg_count) {
+void list_arg2(const char *input_string, char *arguments[], int *arg_count) {
     // Vérifier si la chaîne d'entrée est NULL
     if (input_string == NULL) {
         *arg_count = 0;
@@ -54,7 +54,7 @@ int evaluate(char a[], struct variable *var[]){
   char command[999] = "";
 
   char token[999] = "";
-  char list[99][400];
+  char *list[99];
   char list2[999];
   char list3[999];
   char separator = ',';

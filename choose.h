@@ -15,13 +15,13 @@
 
 #include "evaluate.h"
 
-void eval(char a[][400], long long int o, struct variable *var[]){
+void eval(char *a[], long long int o, struct variable *var[]){
   for (int i = 0; i < o+1; i++){
     evaluate(a[i], var);
   }
 }
 
-void print(char a[][400], long long int o, struct variable *var[], int f){
+void print(char *a[], long long int o, struct variable *var[], int f){
   if (a[1] != NULL){
     
     for (int i = 0; i != o+1; i++){
@@ -46,7 +46,7 @@ void print(char a[][400], long long int o, struct variable *var[], int f){
   }
 }
 
-void input(char a[][400], long long int o, struct variable *var[]){
+void input(char *a[], long long int o, struct variable *var[]){
   char *b = (char*)malloc(sizeof(char) * 4000);
   char ce[999] = "\"output\" = ";
   fgets(b, 400, stdin);
@@ -62,7 +62,7 @@ void input(char a[][400], long long int o, struct variable *var[]){
 }
 
 
-int choose(char a[], char b[][400], int c, struct variable *var[]){
+int choose(char a[], char *b[], int c, struct variable *var[]){
   //printf("a = %s\n", a);
   //printf("%d : %s\n", strcmp(a, "print"), a);
   if (strcmp(a, "print") == 0){

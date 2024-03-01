@@ -90,7 +90,7 @@ int read(char i[], char b[]){
   return number;
 }
 
-void list_arg(const char *input_string, char arguments[][99], int *arg_count) {
+void list_arg(const char *input_string, char *arguments[], int *arg_count) {
     // Vérifier si la chaîne d'entrée est NULL
     if (input_string == NULL) {
         *arg_count = 0;
@@ -124,7 +124,7 @@ void list_arg(const char *input_string, char arguments[][99], int *arg_count) {
     }
 }
 
-int list_line(char *a, char c[][400]) {
+int list_line(char *a, char *c[]) {
 
   char *b = strtok(a, "\n");
   int i = 0;
@@ -194,7 +194,7 @@ int main(void) {
   number = read(c, "saucisse.txt");
   //char **list = splitline(c, "\n");
   analize(c);
-  char list[100][400];
+  char *list[number+20];
   
   //replace_newlines(c);
   int number2 = list_line(c, list);

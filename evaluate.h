@@ -49,12 +49,15 @@ void list_arg2(const char *input_string, char *arguments[], int *arg_count) {
     }
 }
 
+int choose(char *a, char **b, int c, struct variable **var);
+int find(char *a, char *b);
+
 
 int evaluate(char a[], struct variable *var[]){
   char command[200] = "";
 
   char token[100] = "";
-  char list1[99];
+  char list1[100];
   char list2[100];
   char list3[100];
   char separator = ',';
@@ -70,15 +73,16 @@ int evaluate(char a[], struct variable *var[]){
   if (extract2(a , &ab, &ab, command, list2) != NULL){
     extraire(a, &ab, &ac, token, list3);
 
-    if (find(token, &separator) == 1){
+    if (find(&token, &separator) == 1){
      list_arg2(token, list1, &number);
     }else {
-      char *ptr = list1[0];
+      if (list1[0] != NULL){
 
-      strcpy(ptr, token);
+      strcpy(list1[0], token);
+      }
     }
 
-    choose(command, list1, number, var);
+    choose(command, &list1, number, var);
   }
   else if (find(a, &sep2) == 1){
     saucisse(var, a);

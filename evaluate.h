@@ -73,8 +73,9 @@ int evaluate(char a[], struct variable *var[]){
     if (find(token, &separator) == 1){
      list_arg2(token, list1, &number);
     }else {
+      char *ptr = list1[0];
 
-      strcpy(&list1[0], token);
+      strcpy(ptr, token);
     }
 
     choose(command, list1, number, var);

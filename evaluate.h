@@ -54,7 +54,7 @@ int evaluate(char a[], struct variable *var[]){
   char command[200] = "";
 
   char token[100] = "";
-  char list[99];
+  char list1[99];
   char list2[100];
   char list3[100];
   char separator = ',';
@@ -71,13 +71,13 @@ int evaluate(char a[], struct variable *var[]){
     extraire(a, &ab, &ac, token, list3);
 
     if (find(token, &separator) == 1){
-     list_arg2(token, list, &number);
+     list_arg2(token, list1, &number);
     }else {
 
-      strcpy(list[0], token);
+      strcpy(&list1[0], token);
     }
 
-    choose(command, list, number, var);
+    choose(command, list1, number, var);
   }
   else if (find(a, &sep2) == 1){
     saucisse(var, a);
